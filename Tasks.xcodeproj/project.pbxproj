@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		FE2EC9C920CBE69800E5514E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9C820CBE69800E5514E /* AppDelegate.swift */; };
-		FE2EC9CB20CBE69800E5514E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9CA20CBE69800E5514E /* FirstViewController.swift */; };
 		FE2EC9CD20CBE69800E5514E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9CC20CBE69800E5514E /* SecondViewController.swift */; };
 		FE2EC9D020CBE69800E5514E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2EC9CE20CBE69800E5514E /* Main.storyboard */; };
 		FE2EC9D220CBE69900E5514E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE2EC9D120CBE69900E5514E /* Assets.xcassets */; };
 		FE2EC9D520CBE69900E5514E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2EC9D320CBE69900E5514E /* LaunchScreen.storyboard */; };
 		FE2EC9E020CBE69900E5514E /* TasksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9DF20CBE69900E5514E /* TasksTests.swift */; };
 		FE2EC9EB20CBE69900E5514E /* TasksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9EA20CBE69900E5514E /* TasksUITests.swift */; };
+		FE2EC9F920CBEF7B00E5514E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9F820CBEF7B00E5514E /* Event.swift */; };
+		FE2EC9FB20CC820F00E5514E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9FA20CC820F00E5514E /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,6 @@
 /* Begin PBXFileReference section */
 		FE2EC9C520CBE69800E5514E /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2EC9C820CBE69800E5514E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE2EC9CA20CBE69800E5514E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		FE2EC9CC20CBE69800E5514E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FE2EC9CF20CBE69800E5514E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE2EC9D120CBE69900E5514E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		FE2EC9E620CBE69900E5514E /* TasksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TasksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2EC9EA20CBE69900E5514E /* TasksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksUITests.swift; sourceTree = "<group>"; };
 		FE2EC9EC20CBE69900E5514E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE2EC9F820CBEF7B00E5514E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		FE2EC9FA20CC820F00E5514E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				FE2EC9C820CBE69800E5514E /* AppDelegate.swift */,
-				FE2EC9CA20CBE69800E5514E /* FirstViewController.swift */,
 				FE2EC9CC20CBE69800E5514E /* SecondViewController.swift */,
 				FE2EC9CE20CBE69800E5514E /* Main.storyboard */,
+				FE2EC9F820CBEF7B00E5514E /* Event.swift */,
 				FE2EC9D120CBE69900E5514E /* Assets.xcassets */,
 				FE2EC9D320CBE69900E5514E /* LaunchScreen.storyboard */,
 				FE2EC9D620CBE69900E5514E /* Info.plist */,
+				FE2EC9FA20CC820F00E5514E /* TableViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -190,6 +193,9 @@
 		FE2EC9BD20CBE69800E5514E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+				);
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Kirill Klimovich";
@@ -262,9 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2EC9F920CBEF7B00E5514E /* Event.swift in Sources */,
 				FE2EC9CD20CBE69800E5514E /* SecondViewController.swift in Sources */,
 				FE2EC9C920CBE69800E5514E /* AppDelegate.swift in Sources */,
-				FE2EC9CB20CBE69800E5514E /* FirstViewController.swift in Sources */,
+				FE2EC9FB20CC820F00E5514E /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,11 +437,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QL999D45K9;
 				INFOPLIST_FILE = Tasks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.my.Tasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -444,11 +454,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QL999D45K9;
 				INFOPLIST_FILE = Tasks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.my.Tasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
