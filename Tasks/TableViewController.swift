@@ -1,4 +1,4 @@
-//
+    //
 //  TableViewController.swift
 //  Tasks
 //
@@ -152,7 +152,24 @@ else {
         
         return UISwipeActionsConfiguration(actions: [editAction])
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+            if segue.identifier == "addEvent"{
+            let event = Event(title: "", deadline: Date())
+            events.append(event)
+            
+                let detailViewController:DetailViewController = segue.destination as! DetailViewController
+                detailViewController.event = event
+        }
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     @IBAction func changeDate(_ sender: UIDatePicker) {
         let parentIndexPath = IndexPath(row: datePickerIndexPath!.row - 1, section: 0)
         // change model

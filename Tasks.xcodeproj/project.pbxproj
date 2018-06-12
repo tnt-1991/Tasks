@@ -16,6 +16,7 @@
 		FE2EC9EB20CBE69900E5514E /* TasksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9EA20CBE69900E5514E /* TasksUITests.swift */; };
 		FE2EC9F920CBEF7B00E5514E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9F820CBEF7B00E5514E /* Event.swift */; };
 		FE2EC9FB20CC820F00E5514E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9FA20CC820F00E5514E /* TableViewController.swift */; };
+		FEC0A84020D07A1D002EA4F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0A83F20D07A1D002EA4F0 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		FE2EC9EC20CBE69900E5514E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE2EC9F820CBEF7B00E5514E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FE2EC9FA20CC820F00E5514E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FEC0A83F20D07A1D002EA4F0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				FE2EC9D320CBE69900E5514E /* LaunchScreen.storyboard */,
 				FE2EC9D620CBE69900E5514E /* Info.plist */,
 				FE2EC9FA20CC820F00E5514E /* TableViewController.swift */,
+				FEC0A83F20D07A1D002EA4F0 /* DetailViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -197,7 +200,7 @@
 					1,
 				);
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Kirill Klimovich";
 				TargetAttributes = {
 					FE2EC9C420CBE69800E5514E = {
@@ -270,6 +273,7 @@
 			files = (
 				FE2EC9F920CBEF7B00E5514E /* Event.swift in Sources */,
 				FE2EC9CD20CBE69800E5514E /* SecondViewController.swift in Sources */,
+				FEC0A84020D07A1D002EA4F0 /* DetailViewController.swift in Sources */,
 				FE2EC9C920CBE69800E5514E /* AppDelegate.swift in Sources */,
 				FE2EC9FB20CC820F00E5514E /* TableViewController.swift in Sources */,
 			);
@@ -340,6 +344,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -347,6 +352,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -397,6 +403,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -404,6 +411,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
