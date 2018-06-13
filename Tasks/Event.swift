@@ -11,8 +11,12 @@ import Foundation
 class Event{
     var title: String
     var deadline: Date
-    init(title: String, deadline: Date) {
+    var details: String
+    var isDone: Bool
+    init(title: String, deadline: Date, details: String, isDone: Bool) {
         self.title = title
         self.deadline = deadline
+        self.details = details
+        self.isDone = isDone
     }
 }

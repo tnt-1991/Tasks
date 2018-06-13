@@ -17,6 +17,7 @@
 		FE2EC9F920CBEF7B00E5514E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9F820CBEF7B00E5514E /* Event.swift */; };
 		FE2EC9FB20CC820F00E5514E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2EC9FA20CC820F00E5514E /* TableViewController.swift */; };
 		FEC0A84020D07A1D002EA4F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0A83F20D07A1D002EA4F0 /* DetailViewController.swift */; };
+		FEC0A84220D1A3CD002EA4F0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0A84120D1A3CD002EA4F0 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FE2EC9F820CBEF7B00E5514E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FE2EC9FA20CC820F00E5514E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FEC0A83F20D07A1D002EA4F0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FEC0A84120D1A3CD002EA4F0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				FE2EC9D620CBE69900E5514E /* Info.plist */,
 				FE2EC9FA20CC820F00E5514E /* TableViewController.swift */,
 				FEC0A83F20D07A1D002EA4F0 /* DetailViewController.swift */,
+				FEC0A84120D1A3CD002EA4F0 /* TableViewCell.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				FE2EC9F920CBEF7B00E5514E /* Event.swift in Sources */,
 				FE2EC9CD20CBE69800E5514E /* SecondViewController.swift in Sources */,
 				FEC0A84020D07A1D002EA4F0 /* DetailViewController.swift in Sources */,
+				FEC0A84220D1A3CD002EA4F0 /* TableViewCell.swift in Sources */,
 				FE2EC9C920CBE69800E5514E /* AppDelegate.swift in Sources */,
 				FE2EC9FB20CC820F00E5514E /* TableViewController.swift in Sources */,
 			);

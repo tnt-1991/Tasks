@@ -17,8 +17,6 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // tableView.register(TableViewCell.self, forCellReuseIdentifier: "EventCell")
-
         setDateFormatter()
         createEvents()
         
@@ -51,6 +49,23 @@ class TableViewController: UITableViewController {
         return rows
     }
     
+    fileprivate func setEventAsDone(_ event: Event, _ titleTextEdit: UITextField) {
+        //set Done style
+        if(event.isDone) {
+            let text = event.title
+            let textRange = NSMakeRange(0, text.count)
+            let attributedText = NSMutableAttributedString(string: text)
+            attributedText.addAttribute(NSAttributedStringKey.strikethroughStyle,
+                                        value: NSUnderlineStyle.styleSingle.rawValue,
+                                        range: textRange)
+            
+            titleTextEdit.attributedText = attributedText;
+        }
+        else {
+             titleTextEdit.text = event.title
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         if datePickerIndexPath != nil && datePickerIndexPath!.row == indexPath.row {
@@ -59,13 +74,20 @@ class TableViewController: UITableViewController {
             let textField = cell.viewWithTag(2) as! UITextField
             let event = events[indexPath.row - 1]
             datePicker.setDate(event.deadline, animated: true)
-            textField.text = event.title
+            textField.text = event.details
+            
+            let isDone = cell.viewWithTag(3) as! UISwitch
+            isDone.isOn = event.isDone
         }
-else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")!
+        else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "EditCell")!
             let event = events[indexPath.row]
-            cell.textLabel!.text = event.title
-            cell.detailTextLabel!.text = dateFormatter.string(from: event.deadline)
+            let titleTextEdit = cell.viewWithTag(1) as! UITextField
+            titleTextEdit.text = event.title
+            let dateLabel = cell.viewWithTag(2) as! UILabel
+            dateLabel.text = dateFormatter.string(from: event.deadline)
+            
+            setEventAsDone(event, titleTextEdit)
         }
         return cell
     }
@@ -80,9 +102,9 @@ else {
     }
     
     func createEvents() { // called in viewDidLoad()
-        let event1 = Event(title: "Item 1", deadline: dateFormatter.date(from: "6/9/18")!)
-        let event2 = Event(title: "Item 2", deadline: dateFormatter.date(from: "6/10/18")!)
-        let event3 = Event(title: "Item 3", deadline: dateFormatter.date(from: "6/15/18")!)
+        let event1 = Event(title: "Item 1", deadline: dateFormatter.date(from: "6/9/18")!, details: "", isDone: false)
+        let event2 = Event(title: "Item 2", deadline: dateFormatter.date(from: "6/10/18")!, details: "", isDone: false)
+        let event3 = Event(title: "Item 3", deadline: dateFormatter.date(from: "6/15/18")!, details: "", isDone: false)
    
         events.append(event1)
         events.append(event2)
@@ -142,21 +164,31 @@ else {
             return UITableViewCellEditingStyle.delete
         }
     }
-    
+  
     //edit swipe action (left-side)
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        let editAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in success(true)
+        let editAction = UIContextualAction(style: .normal, title:  "Done", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in success(true)
         })
         editAction.backgroundColor = .blue
+        
+        // change model
+        let parentIndexPath = IndexPath(row: indexPath.row, section: 0)
+        let event = events[parentIndexPath.row]
+        event.isDone = !event.isDone
+        // change view
+        let editCell = tableView.cellForRow(at: indexPath)!
+        let titleTextEdit = editCell.viewWithTag(1) as! UITextField
+        setEventAsDone(event, titleTextEdit)
         
         return UISwipeActionsConfiguration(actions: [editAction])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+            datePickerIndexPath = nil
             if segue.identifier == "addEvent"{
-            let event = Event(title: "", deadline: Date())
+                let event = Event(title: "", deadline: Date(), details: "", isDone: false)
             events.append(event)
             
                 let detailViewController:DetailViewController = segue.destination as! DetailViewController
@@ -176,17 +208,29 @@ else {
         let event = events[parentIndexPath.row]
         event.deadline = sender.date
         // change view
-        let eventCell = tableView.cellForRow(at: parentIndexPath)!
-        eventCell.detailTextLabel!.text = dateFormatter.string(from: sender.date)
+        let editCell = tableView.cellForRow(at: parentIndexPath)!
+        let dateLabel = editCell.viewWithTag(2) as! UILabel
+        dateLabel.text = dateFormatter.string(from: sender.date)
     }
-    @IBAction func changeTitle(_ sender: UITextField) {
+    
+    @IBAction func changeDetails(_ sender: UITextField) {
         let parentIndexPath = IndexPath(row: datePickerIndexPath!.row - 1, section: 0)
         // change model
         let event = events[parentIndexPath.row]
-        event.title = sender.text!
+        event.details = sender.text!
         // change view
-        let eventCell = tableView.cellForRow(at: parentIndexPath)!
-        eventCell.textLabel!.text = sender.text
+        //don't need to change :)
+    }
+    
+    @IBAction func doneChanged(_ sender: UISwitch) {
+        let parentIndexPath = IndexPath(row: datePickerIndexPath!.row - 1, section: 0)
+        // change model
+        let event = events[parentIndexPath.row]
+        event.isDone = sender.isOn
+        // change view
+        let editCell = tableView.cellForRow(at: parentIndexPath)!
+        let titleTextEdit = editCell.viewWithTag(1) as! UITextField
+        setEventAsDone(event, titleTextEdit)
     }
     
     /*
