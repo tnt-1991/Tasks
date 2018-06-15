@@ -49,8 +49,8 @@ class TableViewController: UITableViewController {
         return rows
     }
     
+    //set Done style
     fileprivate func setEventAsDone(_ event: Event, _ titleTextEdit: UITextField) {
-        //set Done style
         if(event.isDone) {
             let text = event.title
             let textRange = NSMakeRange(0, text.count)
@@ -65,6 +65,7 @@ class TableViewController: UITableViewController {
              titleTextEdit.text = event.title
         }
     }
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
@@ -102,9 +103,9 @@ class TableViewController: UITableViewController {
     }
     
     func createEvents() { // called in viewDidLoad()
-        let event1 = Event(title: "Item 1", deadline: dateFormatter.date(from: "6/9/18")!, details: "", isDone: false)
-        let event2 = Event(title: "Item 2", deadline: dateFormatter.date(from: "6/10/18")!, details: "", isDone: false)
-        let event3 = Event(title: "Item 3", deadline: dateFormatter.date(from: "6/15/18")!, details: "", isDone: false)
+        let event1 = Event(title: "Rewatch WWDC 2018", deadline: dateFormatter.date(from: "6/9/18")!, details: "", isDone: false)
+        let event2 = Event(title: "Install iOS 12 beta", deadline: dateFormatter.date(from: "6/10/18")!, details: "", isDone: false)
+        let event3 = Event(title: "Coffee ☕", deadline: dateFormatter.date(from: "6/15/18")!, details: "", isDone: false)
    
         events.append(event1)
         events.append(event2)
@@ -168,8 +169,11 @@ class TableViewController: UITableViewController {
     //edit swipe action (left-side)
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
+
         let editAction = UIContextualAction(style: .normal, title:  "Done", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in success(true)
         })
+        
+        if(datePickerIndexPath == nil) {
         editAction.backgroundColor = .blue
         
         // change model
@@ -180,6 +184,7 @@ class TableViewController: UITableViewController {
         let editCell = tableView.cellForRow(at: indexPath)!
         let titleTextEdit = editCell.viewWithTag(1) as! UITextField
         setEventAsDone(event, titleTextEdit)
+        }
         
         return UISwipeActionsConfiguration(actions: [editAction])
     }
@@ -245,16 +250,6 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 
